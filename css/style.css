@@ -1,0 +1,198 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 16px;
+}
+
+body {
+	background: #eee;
+}
+
+.login-wrapper {
+	box-shadow: 0px 4px 10px 2px rgba(0,0,0,.25);
+	padding: 20px;
+	width: 200px;
+	margin: auto;
+}
+
+.login-wrapper h3 {
+	text-align: center;
+}
+
+input:not([type="checkbox"]), select {
+	width: 100%;
+	padding: 7px 10px;
+	border: 1px solid #aaa;
+}
+
+.login-wrapper > *:not(:last-child) {
+	margin-bottom: 15px;
+}
+
+#main-container {
+	display: flex;
+	height: 100vh;
+}
+
+.flex-wrapper {
+	display: flex;
+}
+
+.username {
+	margin-left: auto;
+}
+
+#dashboard{
+	box-shadow: 0px 1px 10px 5px rgba(0,0,0,.15);
+	background: #fff;
+}
+
+.base-content {
+	width: 960px;
+	margin: 0 auto;
+}
+
+.dashboard-content {
+	padding: 20px 30px;
+}
+
+#logo{
+	box-shadow: 0px 5px 20px 1px rgba(0,0,0,.25);		
+}
+
+#data {
+	margin-top: 60px;
+}
+
+table {
+	width: 100%;
+	border: 0;
+}
+
+td {
+	border: 0;
+}
+
+thead td {
+	padding: 8px 10px;
+}
+
+tbody tr {
+	background: #fff;
+	padding: 8px 10px;
+	border: 1px solid #ddd;
+	box-shadow: 0px 4px 10px 2px rgba(0,0,0,.15);
+	outline: 1px solid #bbb;
+}
+
+tbody tr:not(:last-child) {
+	margin-bottom: 5px;
+}
+
+tbody td {
+	padding: 10px;
+}
+
+.add-new-key {
+	position: fixed;
+	right: 50px;
+	bottom: 50px;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	color: #fff;
+	font-size: 1.5rem;
+	background: green;
+	border-radius: 50%;
+	box-shadow: 0px 5px 18px 3px rgba(0,0,0,.35);
+	cursor: pointer;
+}
+
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.5);
+	z-index: 10;
+	opacity: 0;
+	pointer-events: none;
+	transition: .3s all ease;
+}
+
+.popup-wrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	z-index: 11;
+	pointer-events: none;
+}
+
+.popup-key {
+	width: 600px;
+	min-height: 200px;
+	background: #fff;
+	box-shadow: 0px 5px 18px 3px rgba(0,0,0,.35);
+	border-radius: 3px;
+	opacity: 0;
+	transition: .3s all ease;
+	margin: auto;
+	padding: 40px 25px;
+	position: relative;
+}
+
+.close {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	width: 25px;
+	height: 25px;
+	text-align: center;
+	line-height: 25px;
+	color: #fff;
+	transform: rotate(45deg);
+	background: red;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+body.open-popup .overlay {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+body.open-popup .popup-wrapper {
+	pointer-events: auto;
+}
+
+body.open-popup .popup-key {
+	opacity: 1;
+}
+
+.popup-key label:not(:last-child) {
+	margin-bottom: 15px;
+}
+
+label {
+	display: block;
+}
+
+.popup-key label > div {
+	margin-bottom: 5px;
+}
+
+.popup-key .submit-wrapper {
+	margin-top: 40px;
+}
+
+.hidden {
+	visibility: hidden;
+}

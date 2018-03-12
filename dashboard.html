@@ -1,0 +1,150 @@
+<html>
+<head>
+	<title>Telkomsel Kunci</title>
+	<link href="css/style.css" rel="stylesheet" />
+	<link href="css/flexboxgrid.css" rel="stylesheet" />
+</head>
+<body>
+
+	<div class="overlay"></div>
+
+	<div class="popup-wrapper">
+		<div class="popup-key">
+			<div class="close">+</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<label for="">
+						<div>Nama Kunci</div>
+						<input type="text" name="kunci"></input>
+					</label>
+				
+					<label>
+						<div>Warna Kunci</div>
+						<select>
+							<option value="kuning">Kuning</option>
+							<option value="merah">Merah</option>
+							<option value="hijau">Hijau</option>
+							<option value="hitam">Hitam</option>
+							<option value="pink">Pink</option>
+						</select>
+					</label>
+
+					<label>
+						<div>Jenis Kunci</div>
+						<select>
+							<option value="rectifier">Rectifier</option>
+							<option value="kwhjakpusel">KWH Jakpusel</option>
+							<option value="beltingjakpus">Belting Jakpus</option>
+							<option value="cyber">Cyber</option>
+						</select>
+					</label>
+
+					<label>
+						<input type="checkbox" class='is-user'>
+						<span>Apakah ada peminjam?</span>
+					</label>
+				</div>
+
+				<div class="col-md-6 user-wrapper hidden">
+
+					<label>
+						<div>Nama Lengkap</div>
+						<input type="text" name="peminjam"></input>
+					</label>
+
+					<label>
+						<div>Nomer Handphone</div>
+						<input type="text" name="nomorhp"></input>
+					</label>
+
+					<label>
+						<div>Asal Perusahaan</div>
+						<input type="text" name="asal"></input>
+					</label>
+
+					<label>
+						<div>Tanggal Pinjam</div>
+						<input type="date" name="tanggal_pinjam"></input>
+					</label>
+
+				</div>
+			</div>
+
+			<div class="submit-wrapper">
+				<input type="submit" value="Simpan">
+			</div>
+		</div>
+	</div>
+
+	<div id="dashboard">
+		<div class="base-content dashboard-content">
+			<div class="row">
+				<div class="col-md-6 col-sm-6 col-xs-6">
+					<div class="logo">
+						<a href="index.html">Tsel Kunci</a>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-6 col-xs-6">
+					<div class="flex-wrapper">
+						<div class="username">Fitri</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+
+	<div id="data">
+		<div class="base-content">
+			<table border="1">
+			<thead>
+				<tr>
+					<td>Nama</td>
+					<td>No Hp</td>
+					<td>Asal PT</td>
+					<td>Kunci</td>
+					<td>Warna</td>
+					<td>Jenis</td>
+					<td>Tanggal Pinjam</td>
+					<td>Tanggal Kembali</td>
+					<td>Aksi</td>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td>Fitri</td>
+					<td>082214216552</td>
+					<td>Tsel</td>
+					<td>hdw</td>
+					<td>Kuning</td>
+					<td>KWH</td>
+					<td>10 Maret 2018</td>
+					<td>12 Maret 2018</td>
+					<td><button>Hapus</button></td>
+				</tr>
+
+				<tr>
+					<td>Wanda</td>
+					<td>082214216552</td>
+					<td>Tsel</td>
+					<td>hdw</td>
+					<td>Kuning</td>
+					<td>KWH</td>
+					<td>10 Maret 2018</td>
+					<td>12 Maret 2018</td>
+					<td><button>Hapus</button></td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+	</div>
+
+	<div class="button add-new-key">+</div>
+
+	<script src="js/main.js"></script>
+
+
+</body>
+</html>
