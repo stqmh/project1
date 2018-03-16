@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 08, 2018 at 11:17 AM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.1
+-- Generation Time: Mar 16, 2018 at 08:07 AM
+-- Server version: 10.1.29-MariaDB
+-- PHP Version: 7.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,111 +25,254 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_admin`
+-- Table structure for table `admin`
 --
 
-CREATE TABLE `tb_admin` (
-  `id_admin` int(50) NOT NULL,
-  `username` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL,
-  `fullname` varchar(30) NOT NULL,
-  `phone` varchar(20) NOT NULL,
-  `email` varchar(20) NOT NULL
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `nama_admin` varchar(200) NOT NULL,
+  `username_admin` varchar(100) NOT NULL,
+  `pass_admin` varchar(100) NOT NULL,
+  `email_admin` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `nama_admin`, `username_admin`, `pass_admin`, `email_admin`) VALUES
+(1, 'Fitriana Istiqomah', 'admin', 'admin', 'admin@telkomsel.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kunci`
+--
+
+CREATE TABLE `kunci` (
+  `id` int(11) NOT NULL,
+  `nama_kunci` varchar(200) NOT NULL,
+  `status_kunci` int(11) NOT NULL,
+  `warna_kunci` int(11) NOT NULL,
+  `jenis_kunci` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kunci`
+--
+
+INSERT INTO `kunci` (`id`, `nama_kunci`, `status_kunci`, `warna_kunci`, `jenis_kunci`) VALUES
+(1, 'Kunci Inggris', 1, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `peminjaman`
+--
+
+CREATE TABLE `peminjaman` (
+  `id` int(11) NOT NULL,
+  `admin_pinjam` int(11) NOT NULL,
+  `user_pinjam` int(11) NOT NULL,
+  `kunci_pinjam` int(11) NOT NULL,
+  `awak_pinjam` datetime NOT NULL,
+  `akhir_pinjam` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_kunci`
+-- Table structure for table `rfjeniskunci`
 --
 
-CREATE TABLE `tb_kunci` (
-  `id_kunci` int(50) NOT NULL,
-  `nama_kunci` varchar(50) NOT NULL,
+CREATE TABLE `rfjeniskunci` (
+  `id` int(11) NOT NULL,
+  `jenis_kunci` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rfstatus`
+--
+
+CREATE TABLE `rfstatus` (
+  `id` int(11) NOT NULL,
   `status_kunci` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `tb_peminjaman`
+-- Dumping data for table `rfstatus`
 --
 
-CREATE TABLE `tb_peminjaman` (
-  `id_peminjaman` int(100) NOT NULL,
-  `id_user` int(50) NOT NULL,
-  `id_kunci` int(50) NOT NULL,
-  `tanggal_pinjam` date NOT NULL,
-  `tanggal_kembali` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `rfstatus` (`id`, `status_kunci`) VALUES
+(1, 'Tersedia'),
+(2, 'Tidak Tersedia');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_user`
+-- Table structure for table `rfvendor`
 --
 
-CREATE TABLE `tb_user` (
-  `id_user` int(50) NOT NULL,
-  `nama_user` varchar(30) NOT NULL,
-  `hp_user` varchar(15) NOT NULL
+CREATE TABLE `rfvendor` (
+  `id` int(11) NOT NULL,
+  `nama_vendor` varchar(100) NOT NULL,
+  `phone_vendor` varchar(20) NOT NULL,
+  `add_vendor` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `rfvendor`
+--
+
+INSERT INTO `rfvendor` (`id`, `nama_vendor`, `phone_vendor`, `add_vendor`) VALUES
+(1, 'Huawei Tech', '021-123', 'Mall Kota Kasablanka'),
+(2, 'Alita Prima', '021-900', 'TB Simatupang');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rfwarnakunci`
+--
+
+CREATE TABLE `rfwarnakunci` (
+  `id` int(11) NOT NULL,
+  `warna_kunci` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `rfwarnakunci`
+--
+
+INSERT INTO `rfwarnakunci` (`id`, `warna_kunci`) VALUES
+(1, 'Merah'),
+(2, 'Kuning');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `nama_user` varchar(200) NOT NULL,
+  `hp_user` varchar(20) NOT NULL,
+  `email_user` varchar(100) NOT NULL,
+  `vendor_user` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `nama_user`, `hp_user`, `email_user`, `vendor_user`) VALUES
+(1, 'Fitriana Istiqomah', '089128901921', 'admin@telkomsel.com', 1);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `tb_admin`
+-- Indexes for table `admin`
 --
-ALTER TABLE `tb_admin`
-  ADD PRIMARY KEY (`id_admin`);
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_kunci`
+-- Indexes for table `kunci`
 --
-ALTER TABLE `tb_kunci`
-  ADD PRIMARY KEY (`id_kunci`);
+ALTER TABLE `kunci`
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_peminjaman`
+-- Indexes for table `peminjaman`
 --
-ALTER TABLE `tb_peminjaman`
-  ADD PRIMARY KEY (`id_peminjaman`);
+ALTER TABLE `peminjaman`
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_user`
+-- Indexes for table `rfjeniskunci`
 --
-ALTER TABLE `tb_user`
-  ADD PRIMARY KEY (`id_user`);
+ALTER TABLE `rfjeniskunci`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `rfstatus`
+--
+ALTER TABLE `rfstatus`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `rfvendor`
+--
+ALTER TABLE `rfvendor`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `rfwarnakunci`
+--
+ALTER TABLE `rfwarnakunci`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `tb_admin`
+-- AUTO_INCREMENT for table `admin`
 --
-ALTER TABLE `tb_admin`
-  MODIFY `id_admin` int(50) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tb_kunci`
+-- AUTO_INCREMENT for table `kunci`
 --
-ALTER TABLE `tb_kunci`
-  MODIFY `id_kunci` int(50) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `kunci`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tb_peminjaman`
+-- AUTO_INCREMENT for table `peminjaman`
 --
-ALTER TABLE `tb_peminjaman`
-  MODIFY `id_peminjaman` int(100) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `peminjaman`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tb_user`
+-- AUTO_INCREMENT for table `rfjeniskunci`
 --
-ALTER TABLE `tb_user`
-  MODIFY `id_user` int(50) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `rfjeniskunci`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `rfstatus`
+--
+ALTER TABLE `rfstatus`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `rfvendor`
+--
+ALTER TABLE `rfvendor`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `rfwarnakunci`
+--
+ALTER TABLE `rfwarnakunci`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
