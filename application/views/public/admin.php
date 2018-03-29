@@ -108,7 +108,7 @@
 	var table = $('#data-table').DataTable({
 		"data": null,
 		"ajax": {
-			"url": "http://localhost/pinjamkunciku/admin/getadmin",
+			"url": "http://localhost/project1/admin/getadmin",
 			"type": "GET"
 		},
 	});
@@ -126,7 +126,7 @@
 
 		if (operasi == 'update') {
 			$.ajax({
-				url: 'http://localhost/pinjamkunciku/admin/updateadmin?id=' + idadmin,
+				url: 'http://localhost/project1/admin/updateadmin?id=' + idadmin,
 				data: AddAdmin,
 				type: 'POST',
 				dataType: 'json',
@@ -142,7 +142,7 @@
 			});
 		} else {
 			$.ajax({
-				url: 'http://localhost/pinjamkunciku/admin/addadmin',
+				url: 'http://localhost/project1/admin/addadmin',
 				data: AddAdmin,
 				type: 'POST',
 				dataType: 'json',
@@ -167,7 +167,7 @@
 
 	function EditAdmin(id) {
 		$.ajax({
-			url: 'http://localhost/pinjamkunciku/admin/getadminid?id='+id,
+			url: 'http://localhost/project1/admin/getadminid?id='+id,
 			type: 'GET',
 			dataType: 'json',
 			success: function(dt) {
@@ -187,7 +187,7 @@
 	$('#button-delete').on('click', function() {
 		id = $('#iddelete').val();
 		$.ajax({
-			url: 'http://localhost/pinjamkunciku/admin/deleteadmin?id='+id,
+			url: 'http://localhost/project1/admin/deleteadmin?id='+id,
 			type: 'GET',
 			dataType: 'json',
 			success: function(dt) {

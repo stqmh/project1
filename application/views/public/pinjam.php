@@ -47,7 +47,7 @@
 		"data": null,
           // Load data for the table's content from an Ajax source
           "ajax": {
-          	"url": "http://localhost/pinjamkunci/main/getkunci",
+          	"url": "http://localhost/project1/main/getkunci",
           	"type": "GET"
           },
       });
@@ -57,7 +57,7 @@
 		AddKunci.kunci = $('#input-kunci').val();
 		AddKunci.stat = $('#input-status').val();
 		$.ajax({
-			url:'http://localhost/pinjamkunci/main/addkunci',
+			url:'http://localhost/project1/main/addkunci',
 			data:AddKunci,
 			type:'POST',
 			dataType:'json',

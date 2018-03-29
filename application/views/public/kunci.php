@@ -104,7 +104,7 @@
 	var table = $('#data-table').DataTable({
 		"data": null,
 		"ajax": {
-			"url": "http://localhost/pinjamkunciku/kunci/getkunci",
+			"url": "http://localhost/project1/kunci/getkunci",
 			"type": "GET"
 		},
 	});
@@ -121,7 +121,7 @@
 
 		if (operasi == 'update') {
 			$.ajax({
-				url: 'http://localhost/pinjamkunciku/kunci/updatekunci?id=' + idkunci,
+				url: 'http://localhost/project1/kunci/updatekunci?id=' + idkunci,
 				data: AddKunci,
 				type: 'POST',
 				dataType: 'json',
@@ -137,7 +137,7 @@
 			});
 		} else {
 			$.ajax({
-				url: 'http://localhost/pinjamkunciku/kunci/addkunci',
+				url: 'http://localhost/project1/kunci/addkunci',
 				data: AddKunci,
 				type: 'POST',
 				dataType: 'json',
@@ -162,7 +162,7 @@
 
 	function EditKunci(id) {
 		$.ajax({
-			url: 'http://localhost/pinjamkunciku/kunci/getkunciid?id='+id,
+			url: 'http://localhost/project1/kunci/getkunciid?id='+id,
 			type: 'GET',
 			dataType: 'json',
 			success: function(dt) {
@@ -181,7 +181,7 @@
 	$('#button-delete').on('click', function() {
 		id = $('#iddelete').val();
 		$.ajax({
-			url: 'http://localhost/pinjamkunciku/kunci/deletekunci?id='+id,
+			url: 'http://localhost/project1/kunci/deletekunci?id='+id,
 			type: 'GET',
 			dataType: 'json',
 			success: function(dt) {
