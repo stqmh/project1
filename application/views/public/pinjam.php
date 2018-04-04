@@ -31,8 +31,9 @@
 		<table class="table table-striped table-bordered" id="data-table">
 			<thead>
 				<th>No</th>
-				<th>Nama Kunci</th>
-				<th>Status Kunci</th>
+				<th>Nama Peminjam</th>
+				<th>Warna Kunci</th>
+				<th>Petugas</th>
 				<th>Aksi</th>
 			</thead>
 			<tbody></tbody>
@@ -47,7 +48,7 @@
 		"data": null,
           // Load data for the table's content from an Ajax source
           "ajax": {
-          	"url": "http://localhost/pinjamkunci/main/getkunci",
+          	"url": "http://localhost/project1/pinjam/getdata",
           	"type": "GET"
           },
       });
@@ -57,7 +58,7 @@
 		AddKunci.kunci = $('#input-kunci').val();
 		AddKunci.stat = $('#input-status').val();
 		$.ajax({
-			url:'http://localhost/pinjamkunci/main/addkunci',
+			url:'http://localhost/project1/pinjam/adddata',
 			data:AddKunci,
 			type:'POST',
 			dataType:'json',

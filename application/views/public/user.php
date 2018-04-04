@@ -109,7 +109,7 @@
 	var table = $('#data-table').DataTable({
 		"data": null,
 		"ajax": {
-			"url": "http://localhost/pinjamkunciku/user/getuser",
+			"url": "http://localhost/project1ku/user/getuser",
 			"type": "GET"
 		},
 	});
@@ -127,7 +127,7 @@
 
 		if (operasi == 'update') {
 			$.ajax({
-				url: 'http://localhost/pinjamkunciku/user/updateuser?id=' + iduser,
+				url: 'http://localhost/project1ku/user/updateuser?id=' + iduser,
 				data: AddUser,
 				type: 'POST',
 				dataType: 'json',
@@ -143,7 +143,7 @@
 			});
 		} else {
 			$.ajax({
-				url: 'http://localhost/pinjamkunciku/user/adduser',
+				url: 'http://localhost/project1ku/user/adduser',
 				data: AddUser,
 				type: 'POST',
 				dataType: 'json',
@@ -168,7 +168,7 @@
 
 	function EditUser(id) {
 		$.ajax({
-			url: 'http://localhost/pinjamkunciku/user/getuserid?id='+id,
+			url: 'http://localhost/project1ku/user/getuserid?id='+id,
 			type: 'GET',
 			dataType: 'json',
 			success: function(dt) {
@@ -188,7 +188,7 @@
 	$('#button-delete').on('click', function() {
 		id = $('#iddelete').val();
 		$.ajax({
-			url: 'http://localhost/pinjamkunciku/user/deleteuser?id='+id,
+			url: 'http://localhost/project1ku/user/deleteuser?id='+id,
 			type: 'GET',
 			dataType: 'json',
 			success: function(dt) {
